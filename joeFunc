@@ -1,0 +1,77 @@
+#include <iostream>
+#include <valarray>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+using namespace std;
+int main()
+{
+int choice;
+int valuesOfSetA,valuesOfSetB;
+vector<double> setA;
+vector<double> setB;
+vector<double> unionSet;
+//first set
+cout<<"Please enter first set: "<<endl;
+cin>>valuesOfSetA;
+while(valuesOfSetA !=0){
+        setA.push_back(valuesOfSetA);
+        cout << valuesOfSetA << " added "<<endl;
+        cout << "Size of set A = " <<setA.size( ) <<endl;
+        cout<<"To Stop enter e or E"<<endl;
+        cin >> valuesOfSetA;
+
+if (valuesOfSetA == 0){
+    break;}
+}
+sort(setA.begin(),setA.end());
+//Second set
+cout<<"Please enter second set: "<<endl;
+cin>> valuesOfSetB;
+while(valuesOfSetB !=0 ){
+        setB.push_back(valuesOfSetB);
+        cout << valuesOfSetB << " added "<<endl;
+        cout << "Size of set B = " <<setB.size( ) <<endl;
+        cout<<"To Stop enter zero "<<endl;
+        cin>> valuesOfSetB;
+        if (valuesOfSetB ==0){
+            break;}
+            }
+sort(setA.begin(),setA.end());// sort from small to big
+//Choices
+cout<< "Choose what to do"<<'\n'<<"4:Union between Set A and Set B \n";
+cout<< "5:Intersection between Set A and Set B \n"<<"6:Elements in Set A and not in Set B (A-B)"<<endl;
+cin>>choice;
+ if(choice==4){
+    for(int i=0;i<=setA.size();i++){
+        unionSet.push_back(setA[i]);
+    }
+    for(int j=0;j<=setB.size();j++){
+        unionSet.push_back(setB[j]);
+        find(unionSet.begin(),unionSet.end(),setB[j])!=unionSet.end();
+        continue;}
+ }
+
+cout<<unionSet.size()<<endl;
+cout<<unionSet[2];
+
+if (choice==5){
+ vector<double>intersectionSet;
+ for(int y=0;y<=setA.size();y++){
+    for(int z=0;z<=setB.size();z++){
+        if (setA[y]==setB[z]){
+            intersectionSet.push_back(setA[y]);
+
+        }
+    }
+ }
+cout<<intersectionSet[0]<<'\n'<<intersectionSet[1];
+}
+
+
+if (choice==6){
+
+}
+
+return 0;
+}
